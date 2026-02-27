@@ -1,57 +1,58 @@
-# FoodSaver AI: Smart Pantry & Waste Minimizer
+# ArtoFact: AI Art Authenticator
 
 Final project for the Building AI course
 
 ## Summary
 
-FoodSaver AI is a computer vision and optimization tool designed to track household groceries. By identifying items via photos and analyzing expiration dates, it suggests recipes to use up food before it spoils, significantly reducing household waste and saving money.
+ArtoFact is a computer vision tool designed to support art historians and collectors in verifying the authenticity of paintings. By analyzing high-resolution scans for specific "stylometric" fingerprints—such as brushstroke pressure and edge consistency—the model provides a probability score indicating if a work truly belongs to a specific master’s oeuvre.
+
+![Project Overview](/art-header.png)
 
 ## Background
 
-Food waste is a global crisis with significant economic and environmental impacts.
-* **The Problem:** 1/3 of all food produced globally is wasted, with households being a major contributor.
-* **Frequency:** The average person forgets what is in the back of their fridge, leading to expired goods weekly.
-* **Motivation:** My goal is to make sustainable living effortless by using AI to bridge the gap between "what I have" and "what I can cook."
+The art market faces growing challenges from sophisticated forgeries and undisclosed AI-generated replicas.
+* **Subjectivity:** Traditional authentication relies on human "connoisseurship," which can be prone to error.
+* **Market Integrity:** Forgeries devalue cultural heritage and cause significant financial loss.
+* **Personal Motivation:** I want to preserve the integrity of human creativity by providing an objective, data-driven "second opinion" for art experts.
 
 ## How is it used?
 
-The solution is used in a home kitchen environment. 
-1. **Input:** The user takes a photo of their grocery receipt or the inside of their fridge.
-2. **Processing:** The AI identifies items and estimates shelf-life.
-3. **Action:** The user receives a notification: "Your spinach expires in 2 days. Try making Creamy Spinach Pasta tonight!"
+The solution is intended for use by auction houses, galleries, and researchers.
+1. **Upload:** A high-resolution photo of the artwork is uploaded to the system.
+2. **Analysis:** The AI compares microscopic textures against a verified database of the artist's known works.
+3. **Visualization:** The system generates a heatmap showing stylistic inconsistencies.
 
-The needs of busy professionals and families are prioritized by keeping the interaction time under 30 seconds.
-
-<img src="https://upload.wikimedia.org" width="300">
+![User Interface Screenshot](/art-ui-demo.png)
 
 ## Data sources and AI methods
-The project relies on a combination of image recognition and recommendation algorithms.
-* **Image Data:** [Food-101 Dataset](https://www.kaggle.com) for identifying ingredients.
-* **Methods:** 
-    * **Convolutional Neural Networks (CNN):** To classify items from images.
-    * **Filtering Algorithms:** To match available ingredients with a recipe database.
+The project utilizes deep learning architectures tuned for fine-grained image recognition.
+* **Data Sources:** 
+    * [The Metropolitan Museum of Art Open Access API](https://www.metmuseum.org)
+    * [WikiArt Dataset](https://www.wikiart.org)
+* **AI Techniques:**
+    * **Convolutional Neural Networks (CNN):** To extract brushstroke patterns.
+    * **Heatmap Generation:** To highlight areas that differ from the artist's usual style.
 
 
-| Tech Layer | Method |
+| Feature Analyzed | AI Method |
 | ----------- | ----------- |
-| Recognition | CNN (MobileNetV2) |
-| Logic | Rule-based expiration tracking |
-| Recommendation | Content-based filtering |
+| Brushstroke Stylometry | ResNet-101 CNN |
+| Style Consistency | Transfer Learning |
 
 ## Challenges
 
-* **Project Scope:** It does not solve the issue of food quality (e.g., it can't "smell" if milk has gone sour prematurely).
-* **Ethics:** Data privacy is a concern; the AI should only process images of food items and ignore any faces or personal information captured in the background.
+* **Interpretability:** The AI provides a probability but cannot always "explain" its reasoning in art-historical terms.
+* **Data Scarcity:** Rare artists may not have enough authenticated works to build a strong digital fingerprint.
+* **Ethics:** There is a risk that forgers could use similar AI to train better forgeries.
 
 ## What next?
 
-The project could grow by:
-* Integrating with grocery store APIs for automatic digital receipt syncing.
-* Collaborating with nutritionists to provide health-focused meal plans.
-* I would need a partner with expertise in mobile app development (Flutter/React Native) to make this a portable tool.
+How could this grow?
+* **Mobile App:** A version for on-site verification at small galleries.
+* **Hardware Integration:** Combining AI with infrared and X-ray scanners for deeper material analysis.
+* **Assistance Needed:** I would need to collaborate with material scientists to integrate chemical pigment data.
 
 ## Acknowledgments
 
-* Inspired by the "Zero Waste" movement and the University of Helsinki's Building AI course.
-* [Food-101 Dataset](https://data.vision.ee.ethz.ch) by Bossard et al.
-* Reaktor Innovations for the project template.
+* [Sleeping Cat on Her Back by Umberto Salvagnin](https://commons.wikimedia.org) / [CC BY 2.0](https://creativecommons.org) (Example Image)
+* Inspired by the Rembrandt Project and the Building AI course by University of Helsinki.
